@@ -1,0 +1,16 @@
+{
+    "name": "nexus-lang",
+    "displayName": "Nexus Language",
+    "description": "Standard support for the Nexus Programming Language.",
+    "version": "1.0.0",
+    "publisher": "OverpoweredStudios",
+    "engines": { "vscode": "^1.60.0" },
+    "categories": ["Programming Languages"],
+    "contributes": {
+        "languages": [{
+            "id": "nexus",
+            "aliases": ["Nexus", "nexus"],
+            "extensions": [".nxs"]
+        }]
+    }
+}
