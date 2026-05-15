@@ -1,60 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nexus | The Next-Gen Language</title>
+    <title>Nexus Programming Language | Standalone & Powerful</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Inter', sans-serif; }
-        .gradient-text { background: linear-gradient(90deg, #58a6ff, #bc8cff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .btn-primary { background: #238636; transition: 0.3s; }
-        .btn-primary:hover { background: #2ea043; transform: translateY(-2px); }
+        :root {
+            --bg-dark: #0d1117;
+            --accent-blue: #58a6ff;
+            --accent-purple: #bc8cff;
+        }
+        body { background-color: var(--bg-dark); color: #c9d1d9; font-family: 'Inter', sans-serif; }
+        .nexus-gradient { background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass-card { background: rgba(22, 27, 34, 0.8); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); transition: all 0.3s ease; }
+        .glass-card:hover { border-color: var(--accent-blue); transform: translateY(-5px); }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0d1117; }
+        ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-blue); }
+        .code-font { font-family: 'Fira Code', monospace; }
     </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <nav class="p-6 border-b border-gray-800 flex justify-between items-center max-w-6xl mx-auto">
-        <h1 class="text-2xl font-bold gradient-text">Nexus-Lang</h1>
-        <div class="space-x-6">
-            <a href="https://github.com/Vishwam162/Nexus-Lang" class="hover:text-white">GitHub</a>
-            <a href="https://github.com/Vishwam162/Nexus-Lang/releases" class="btn-primary px-4 py-2 rounded-lg text-white font-semibold">Download v1.1</a>
+<body class="antialiased">
+
+    <!-- Sticky Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-none bg-opacity-90">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-lg"></div>
+                <span class="text-2xl font-black tracking-tighter nexus-gradient">NEXUS</span>
+            </div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#features" class="hover:text-blue-400 transition">Features</a>
+                <a href="#code" class="hover:text-blue-400 transition">Syntax</a>
+                <a href="#roadmap" class="hover:text-blue-400 transition">Roadmap</a>
+            </div>
+            <a href="https://github.com/Vishwam162/Nexus-Lang/releases" 
+               class="bg-blue-600 hover:bg-blue-500 text-white px-6 py-2 rounded-full font-bold transition shadow-lg hover:shadow-blue-500/20">
+                Get v1.1
+            </a>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="py-20 text-center max-w-4xl mx-auto px-4">
-        <h2 class="text-5xl md:text-7xl font-extrabold mb-6">Experience the power of <span class="gradient-text">Nexus</span>.</h2>
-        <p class="text-xl text-gray-400 mb-10 leading-relaxed">A professional standalone programming language built for speed, simplicity, and total independence.</p>
-        
-        <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 text-left overflow-x-auto shadow-2xl mb-12">
-            <code class="text-blue-400"># Nexus Example Code</code><br>
-            <code class="text-purple-400">var</code> <code>x = 100</code><br>
-            <code class="text-yellow-400">print</code><code>(x + 50) </code><span class="text-gray-500">// Output: 150</span>
-        </div>
-    </header>
-
-    <!-- Features Section -->
-    <section class="max-w-6xl mx-auto px-4 py-20 border-t border-gray-800">
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
-                <h3 class="text-xl font-bold mb-3 text-blue-400">Standalone Engine</h3>
-                <p class="text-gray-400">Runs as a native .exe. No Python installation required on the host machine.</p>
-            </div>
-            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
-                <h3 class="text-xl font-bold mb-3 text-purple-400">VS Code Official</h3>
-                <p class="text-gray-400">Includes official .vsix support to eliminate red lines and provide syntax highlighting.</p>
-            </div>
-            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
-                <h3 class="text-xl font-bold mb-3 text-green-400">Ultra Lightweight</h3>
-                <p class="text-gray-400">Minimal footprint with high-speed execution through a custom-built compiler.</p>
+    <section class="pt-32 pb-20 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 tracking-tight">
+                Code without <br> <span class="nexus-gradient italic">Boundaries.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Nexus is a high-performance, standalone programming language engineered for the modern developer. 
+                Compiled to native binaries with zero dependencies.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6">
+                <a href="#download" class="w-full md:w-auto bg-white text-black px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition">
+                    Start Building
+                </a>
+                <div class="flex items-center text-gray-500 code-font bg-gray-900 px-4 py-2 rounded-lg border border-gray-800">
+                    <span class="text-green-500 mr-2">$</span> nexus --version 1.1
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="py-10 text-center text-gray-600 border-t border-gray-800">
-        <p>© 2026 Nexus Language Project by <span class="text-gray-400">Vishwam162</span>. Built in Pune, India.</p>
+    <!-- Code Preview Section -->
+    <section id="code" class="py-20 bg-black/20">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+                <div class="bg-gray-800 px-4 py-3 flex items-center space-x-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    <span class="text-xs text-gray-400 ml-4 code-font">main.nxs — Nexus Language Editor</span>
+                </div>
+                <div class="p-8 bg-[#0d1117] code-font text-lg leading-relaxed">
+                    <p><span class="text-purple-400"># Define our first Nexus variables</span></p>
+                    <p><span class="text-blue-400">var</span> engine_status = <span class="text-green-400">"Online"</span></p>
+                    <p><span class="text-blue-400">var</span> performance = <span class="text-orange-400">100</span></p>
+                    <br>
+                    <p><span class="text-purple-400"># Built-in Logic Control</span></p>
+                    <p><span class="text-blue-400">if</span> performance == <span class="text-orange-400">100</span> {</p>
+                    <p class="ml-8"><span class="text-yellow-400">print</span>(<span class="text-green-400">"Nexus System Initialized..."</span>)</p>
+                    <p class="ml-8"><span class="text-yellow-400">print</span>(engine_status)</p>
+                    <p>}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Features Grid -->
+    <section id="features" class="py-24 px-6 max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-16 text-center">Engine Specifications</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Native Execution</h3>
+                <p class="text-gray-400">Compiled directly to a 36.9MB standalone executable. No Python required on the end-user system.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">VS Code Support</h3>
+                <p class="text-gray-400">Custom VSIX extension providing real-time syntax highlighting and official language recognition.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl">
+                <div class="w-12 h-12 bg-green-500/10 text-green-400 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-4">Error Intelligence</h3>
+                <p class="text-gray-400">Integrated lexer and parser logic that identifies syntax errors before they hit production.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="py-20 px-6 bg-gray-900/30">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center">Development Roadmap</h2>
+            <div class="space-y-8">
+                <div class="flex items-start space-x-6">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-green-500 flex-shrink-0"></div>
+                    <div>
+                        <h4 class="text-xl font-bold">v1.1 - The Global Release (Current)</h4>
+                        <p class="text-gray-400">Standalone .exe distribution, VS Code Extension, and basic variable logic.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-6">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-blue-500 animate-pulse flex-shrink-0"></div>
+                    <div>
+                        <h4 class="text-xl font-bold">v1.5 - Functional Paradigm</h4>
+                        <p class="text-gray-400">Adding support for complex function definitions, local scoping, and array mapping.</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-6">
+                    <div class="mt-1 w-6 h-6 rounded-full bg-gray-700 flex-shrink-0"></div>
+                    <div>
+                        <h4 class="text-xl font-bold">v2.0 - Nexus GUI</h4>
+                        <p class="text-gray-400">Native UI library integration for building desktop apps directly with Nexus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / CTA -->
+    <footer id="download" class="py-24 border-t border-gray-800 text-center px-6">
+        <h2 class="text-4xl font-black mb-8">Ready to deploy?</h2>
+        <div class="flex flex-col md:flex-row justify-center gap-4 mb-12">
+            <a href="https://github.com/Vishwam162/Nexus-Lang/releases/download/v1.1/nexus.exe" 
+               class="glass-card px-8 py-4 rounded-xl flex items-center justify-center hover:bg-blue-600 transition group">
+                <svg class="w-6 h-6 mr-3 text-blue-400 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2z"></path></svg>
+                Download Compiler (.exe)
+            </a>
+            <a href="https://github.com/Vishwam162/Nexus-Lang/releases/download/v1.1/nexus-lang-1.0.0.vsix" 
+               class="glass-card px-8 py-4 rounded-xl flex items-center justify-center hover:bg-purple-600 transition group">
+                <svg class="w-6 h-6 mr-3 text-purple-400 group-hover:text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z"></path></svg>
+                Get VS Code Extension
+            </a>
+        </div>
+        <p class="text-gray-500">Released by <span class="text-gray-300 font-bold">Vishwam162</span> | Developed in Pune, India</p>
     </footer>
+
+    <script>
+        // Smooth reveal on scroll logic
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        });
+
+        document.querySelectorAll('section').forEach((section) => {
+            section.classList.add('transition', 'duration-1000', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
