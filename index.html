@@ -1,136 +1,60 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Nexus | Standalone Programming Language by Vishwam162</title>
-    <meta name="description" content="Nexus is a high-performance, standalone programming language built by Vishwam162. Features native execution, VS Code support, and zero dependencies.">
-    <meta name="keywords" content="Nexus language, programming language, Vishwam162, standalone compiler, Pune developer, Class 10 coder">
-    <meta name="author" content="Vishwam162">
-    
+    <title>Nexus | The Next-Gen Language</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    
     <style>
-        :root {
-            --brand-primary: #58a6ff;
-            --brand-secondary: #bc8cff;
-            --dark-bg: #03060a;
-        }
-        body { 
-            background-color: var(--dark-bg); 
-            color: #d1d5db; 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            overflow-x: hidden;
-        }
-        .text-gradient { 
-            background: linear-gradient(to right, var(--brand-primary), var(--brand-secondary)); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-        }
-        .card-blur {
-            background: rgba(13, 17, 23, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        
-        /* Modal Animation */
-        #download-modal {
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        #download-modal.active {
-            display: flex;
-            opacity: 1;
-        }
-        
-        .nav-link { position: relative; transition: color 0.3s; }
-        .nav-link::after {
-            content: '';
-            position: absolute; width: 0; height: 2px;
-            bottom: -4px; left: 0; background: var(--brand-primary);
-            transition: width 0.3s;
-        }
-        .nav-link:hover::after { width: 100%; }
+        body { background-color: #0d1117; color: #c9d1d9; font-family: 'Inter', sans-serif; }
+        .gradient-text { background: linear-gradient(90deg, #58a6ff, #bc8cff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .btn-primary { background: #238636; transition: 0.3s; }
+        .btn-primary:hover { background: #2ea043; transform: translateY(-2px); }
     </style>
 </head>
-<body class="selection:bg-blue-500 selection:text-white">
-
-    <nav class="fixed top-0 w-full z-[100] card-blur border-b border-white/5">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-purple-600 flex items-center justify-center font-bold text-white">N</div>
-                <span class="text-2xl font-extrabold tracking-tight text-white">NEXUS</span>
-            </div>
-            
-            <div class="hidden lg:flex space-x-10 items-center font-semibold">
-                <a href="#about-nexus" class="nav-link hover:text-white">Technology</a>
-                <a href="#syntax" class="nav-link hover:text-white">Syntax</a>
-                <a href="#creator" class="nav-link hover:text-white">The Creator</a>
-                <button onclick="toggleModal()" class="bg-white text-black px-6 py-2.5 rounded-full hover:bg-blue-500 hover:text-white transition-all duration-300">Download</button>
-            </div>
+<body>
+    <!-- Navbar -->
+    <nav class="p-6 border-b border-gray-800 flex justify-between items-center max-w-6xl mx-auto">
+        <h1 class="text-2xl font-bold gradient-text">Nexus-Lang</h1>
+        <div class="space-x-6">
+            <a href="https://github.com/Vishwam162/Nexus-Lang" class="hover:text-white">GitHub</a>
+            <a href="https://github.com/Vishwam162/Nexus-Lang/releases" class="btn-primary px-4 py-2 rounded-lg text-white font-semibold">Download v1.1</a>
         </div>
     </nav>
 
-    <div id="download-modal" class="fixed inset-0 z-[200] items-center justify-center p-6 bg-black/80 backdrop-blur-sm">
-        <div class="max-w-4xl w-full card-blur p-8 md:p-12 rounded-[2.5rem] relative">
-            <button onclick="toggleModal()" class="absolute top-6 right-6 text-gray-500 hover:text-white">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            
-            <div class="text-center mb-10">
-                <h2 class="text-4xl font-black text-white mb-2">Get Nexus Engine</h2>
-                <p class="text-gray-400">Choose your implementation method</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-blue-500/50 transition-all text-center group">
-                    <div class="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">⚙️</div>
-                    <h3 class="text-2xl font-bold text-white mb-2">Nexus Compiler</h3>
-                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">The core standalone engine to build and run .nexus files as native .exe binaries.</p>
-                    <a href="https://github.com/Vishwam162/Nexus-Lang/releases/download/v1.1/nexus_v1.1.exe" class="block w-full py-3 bg-blue-600 rounded-xl font-bold text-white hover:bg-blue-700 transition">Download .EXE</a>
-                </div>
-
-                <div class="p-8 rounded-3xl bg-white/5 border border-white/10 hover:border-purple-500/50 transition-all text-center group">
-                    <div class="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">📝</div>
-                    <h3 class="text-2xl font-bold text-white mb-2">VS Code Support</h3>
-                    <p class="text-sm text-gray-400 mb-6 leading-relaxed">Official Nexus extension for syntax highlighting, snippets, and IntelliSense.</p>
-                    <a href="https://github.com/Vishwam162/Nexus-Lang/releases/download/v1.1/nexus-support.vsix" class="block w-full py-3 bg-purple-600 rounded-xl font-bold text-white hover:bg-purple-700 transition">Download .VSIX</a>
-                </div>
-            </div>
-            
-            <p class="mt-8 text-center text-xs text-gray-500">Latest Stable Release: 1.1 (Pune Node) &bull; Built for x64 Windows</p>
+    <!-- Hero Section -->
+    <header class="py-20 text-center max-w-4xl mx-auto px-4">
+        <h2 class="text-5xl md:text-7xl font-extrabold mb-6">Experience the power of <span class="gradient-text">Nexus</span>.</h2>
+        <p class="text-xl text-gray-400 mb-10 leading-relaxed">A professional standalone programming language built for speed, simplicity, and total independence.</p>
+        
+        <div class="bg-gray-900 p-6 rounded-xl border border-gray-700 text-left overflow-x-auto shadow-2xl mb-12">
+            <code class="text-blue-400"># Nexus Example Code</code><br>
+            <code class="text-purple-400">var</code> <code>x = 100</code><br>
+            <code class="text-yellow-400">print</code><code>(x + 50) </code><span class="text-gray-500">// Output: 150</span>
         </div>
-    </div>
+    </header>
 
-    <section class="relative pt-44 pb-32 px-6 overflow-hidden text-center">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <h1 class="text-6xl md:text-8xl font-[900] text-white leading-[1.1] mb-8 tracking-tighter">
-                Build Fast. <br> Run <span class="text-gradient">Independent.</span>
-            </h1>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button onclick="toggleModal()" class="px-10 py-5 bg-blue-600 rounded-2xl text-white font-bold text-lg shadow-2xl hover:scale-105 transition-transform">Get Nexus Now</button>
-                <a href="#creator" class="px-10 py-5 card-blur rounded-2xl text-white font-bold text-lg hover:bg-white/10 transition">Meet the Developer</a>
+    <!-- Features Section -->
+    <section class="max-w-6xl mx-auto px-4 py-20 border-t border-gray-800">
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
+                <h3 class="text-xl font-bold mb-3 text-blue-400">Standalone Engine</h3>
+                <p class="text-gray-400">Runs as a native .exe. No Python installation required on the host machine.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
+                <h3 class="text-xl font-bold mb-3 text-purple-400">VS Code Official</h3>
+                <p class="text-gray-400">Includes official .vsix support to eliminate red lines and provide syntax highlighting.</p>
+            </div>
+            <div class="p-6 rounded-xl border border-gray-800 bg-gray-900/50">
+                <h3 class="text-xl font-bold mb-3 text-green-400">Ultra Lightweight</h3>
+                <p class="text-gray-400">Minimal footprint with high-speed execution through a custom-built compiler.</p>
             </div>
         </div>
     </section>
 
-    <script>
-        function toggleModal() {
-            const modal = document.getElementById('download-modal');
-            modal.classList.toggle('active');
-        }
-
-        // Close modal if clicking outside the card
-        window.onclick = function(event) {
-            const modal = document.getElementById('download-modal');
-            if (event.target == modal) {
-                toggleModal();
-            }
-        }
-    </script>
-
+    <!-- Footer -->
+    <footer class="py-10 text-center text-gray-600 border-t border-gray-800">
+        <p>© 2026 Nexus Language Project by <span class="text-gray-400">Vishwam162</span>. Built in Pune, India.</p>
+    </footer>
 </body>
 </html>
